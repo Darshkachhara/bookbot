@@ -1,7 +1,7 @@
 from stats import get_num_words
 from stats import get_num_characters
 from stats import sort_num_characters,sort_key
-
+import sys
 
 def get_book_text(file_path):
     with open(file_path) as f:
@@ -23,10 +23,13 @@ def report(name):
     print("============= END ===============")
 
 def main():
-    name = "/Users/darshkachhara/webflyx/bookbot/books/frankenstein.txt"    
+    if len(sys.argv)<2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    #name = "/Users/darshkachhara/webflyx/bookbot/books/frankenstein.txt"    
     # text = get_book_text(name)
     # print(get_num_words(text))
     # print(get_num_characters(text))
-    report(name)
+    report(sys.argv[1])
 
 main()
