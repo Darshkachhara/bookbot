@@ -1,6 +1,6 @@
 def get_num_words(text):
     word_list = text.split()
-    return f"{len(word_list)} words found in the document"
+    return f"Found {len(word_list)} total words"
 def get_num_characters(text):
     text = text.lower()
     ans = dict()
@@ -10,3 +10,8 @@ def get_num_characters(text):
         else:
             ans[char]=1
     return ans
+def sort_key(items):
+    return items["num"]
+def sort_num_characters(dic):
+    lis = [{"char":key, "num":value} for key,value in dic.items()]
+    return sorted(lis,reverse = True, key = sort_key)
